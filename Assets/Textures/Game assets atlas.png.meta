@@ -312,7 +312,7 @@ TextureImporter:
         width: 202
         height: 233
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -320,6 +320,90 @@ TextureImporter:
       bones: []
       spriteID: 9be838a47901c174daac1cb777719fdf
       internalID: -1174297908
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HealthPoint
+      rect:
+        serializedVersion: 2
+        x: 2403
+        y: 1650
+        width: 158
+        height: 146
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6520b9936ad27d8459db93b0e02a1be9
+      internalID: -830866137
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bush
+      rect:
+        serializedVersion: 2
+        x: 313
+        y: 1023
+        width: 354
+        height: 328
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fd459422973262d40a0231cb0e4b1d32
+      internalID: 986781946
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spectator1
+      rect:
+        serializedVersion: 2
+        x: 428
+        y: 737
+        width: 96
+        height: 129
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: df827e8d65da7f34eb5d433e1bd85d79
+      internalID: 224437480
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spectator2
+      rect:
+        serializedVersion: 2
+        x: 494
+        y: 572
+        width: 95
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d7efd0d5afc5c94ba5ae212220d6d22
+      internalID: -467299985
       vertices: []
       indices: 
       edges: []
@@ -336,15 +420,19 @@ TextureImporter:
     secondaryTextures: []
     nameFileIdTable:
       Block: -784490044
+      Bush: 986781946
       Coin: 1984898856
       Crack1: -649845174
       Crack2: 886054846
       Crack3: 492889049
       Game assets atlas_1: 46003664
+      HealthPoint: -830866137
       Magnet: -1695163580
       Nitro: -1174297908
       OilPuddle: -932154452
       Shield: -498015718
+      Spectator1: 224437480
+      Spectator2: -467299985
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

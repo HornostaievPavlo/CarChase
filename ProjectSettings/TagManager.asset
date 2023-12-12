@@ -50,3 +50,6 @@ TagManager:
   - name: Player
     uniqueID: 1783270393
     locked: 0
+  - name: Booster
+    uniqueID: 4091690569
+    locked: 0

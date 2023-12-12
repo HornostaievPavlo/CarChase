@@ -5,9 +5,9 @@ public class GameEntitiesFactory : MonoBehaviour
     [Header("Obstacles")]
     [SerializeField] private GameObject[] obstaclesPrefabs;
 
-    [SerializeField] private GameObject policeCarPrefab;
-
     [SerializeField] private float obstaclesSpawningRate;
+
+    [SerializeField] private GameObject policeCarPrefab;
 
     [Space]
     [Header("Boosters")]

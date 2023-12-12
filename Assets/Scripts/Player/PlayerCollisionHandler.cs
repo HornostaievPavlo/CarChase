@@ -3,12 +3,12 @@ using UnityEngine;
 public class PlayerCollisionHandler : MonoBehaviour
 {
     private PlayerMovement playerMovement;
-    private Booster booster;
+    //private Booster booster;
 
     private void Awake()
     {
         playerMovement = GetComponent<PlayerMovement>();
-        booster = GetComponent<Booster>();
+        //booster = GetComponent<Booster>();
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -25,11 +25,11 @@ public class PlayerCollisionHandler : MonoBehaviour
     {
         bool isObstacleHit = collision.gameObject.TryGetComponent(out Obstacle obstacle);
 
-        if (isObstacleHit && booster.type == BoosterType.Shield)
-        {
-            Destroy(obstacle.gameObject);
-            return;
-        }
+        //if (isObstacleHit && booster.type == BoosterType.Shield)
+        //{
+        //    Destroy(obstacle.gameObject);
+        //    return;
+        //}
 
         if (isObstacleHit)
         {
@@ -76,6 +76,40 @@ public class PlayerCollisionHandler : MonoBehaviour
 
                     break;
             }
+
+            return;
+        }
+
+        bool isBoosterHit = collision.gameObject.TryGetComponent(out Booster booster);
+
+        if (isBoosterHit)
+        {
+            var boosterType = booster.type;
+
+            switch (boosterType)
+            {
+                case BoosterType.Coin:
+
+                    break;
+
+                case BoosterType.Magnet:
+
+                    break;
+
+                case BoosterType.Shield:
+
+                    break;
+
+                case BoosterType.Nitro:
+
+                    break;
+
+                case BoosterType.HealthPoint:
+
+                    break;
+            }
+
+            Destroy(collision.gameObject);
         }
     }
 }
