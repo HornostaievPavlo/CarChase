@@ -11,13 +11,19 @@ public class BackgroundMovement : MonoBehaviour
 
     private void Start() => startPos = transform.position;
 
-    private void Update()
+    private void Update() => MoveBackground();
+
+    private void MoveBackground()
     {
         Vector3 verticalMovement = Vector3.down * movementSpeed * Time.deltaTime;
 
         transform.Translate(verticalMovement);
 
         if (transform.position.y < RESET_POSITION)
+        {
             transform.position = startPos;
+
+            EventsHandler.OnRoadTileUpdated();
+        }
     }
 }

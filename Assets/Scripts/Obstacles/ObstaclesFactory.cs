@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class ObstaclesFactory : MonoBehaviour
@@ -11,6 +12,11 @@ public class ObstaclesFactory : MonoBehaviour
     [SerializeField]
     private Transform obstaclesParent;
 
+    [SerializeField]
+    private int maxObstaclesAmount;
+
+    private List<GameObject> obstacles = new List<GameObject>();
+
     private const float POLICE_SPAWN_RATE = 60.0f;
 
     private const float VERTICAL_UPPER_POSITION = -50.0f;
@@ -20,6 +26,23 @@ public class ObstaclesFactory : MonoBehaviour
     private void Start()
     {
         InvokeRepeating(nameof(SpawnPoliceCar), POLICE_SPAWN_RATE, POLICE_SPAWN_RATE);
+
+        EventsHandler.RoadTileUpdated.AddListener(GenerateNewObstacles);
+    }
+
+    private void GenerateNewObstacles()
+    {
+        foreach (var obstacle in obstacles)
+        {
+            Destroy(obstacle);
+        }
+
+        obstacles.Clear();
+
+        for (int i = 0; i < maxObstaclesAmount; i++)
+        {
+            SpawnRandomObstacle();
+        }
     }
 
     private void SpawnRandomObstacle()
@@ -33,6 +56,8 @@ public class ObstaclesFactory : MonoBehaviour
 
         var newObstacle = Instantiate(randomObstacle, obstaclesParent);
         newObstacle.transform.localPosition = position;
+
+        obstacles.Add(newObstacle);
     }
 
     private void SpawnPoliceCar() => Instantiate(policeCarPrefab);

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class CameraSize : MonoBehaviour
+public class CameraSizeFitter : MonoBehaviour
 {
     private Camera _camera;
 

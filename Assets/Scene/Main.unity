@@ -251,7 +251,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 325608787}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1ee10d394e6cf934abb78b2d0305978e, type: 3}
   m_Name: 
@@ -582,7 +582,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33be9cb92bea62944aa6ccf07606f3ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 2
+  type: 0
 --- !u!114 &651562075
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -632,6 +632,7 @@ MonoBehaviour:
   - {fileID: 9144982487340291423, guid: 96a49708813054b45b238ab4f59c1de3, type: 3}
   policeCarPrefab: {fileID: 4734774928053410460, guid: 2b37372bff6ba864291e993cafc7cb1a, type: 3}
   obstaclesParent: {fileID: 2003654202}
+  maxObstaclesAmount: 2
 --- !u!4 &751996000
 Transform:
   m_ObjectHideFlags: 0
@@ -739,7 +740,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 767168436}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 524480bb7a18df54293cfe42e4b22ce0, type: 3}
   m_Name: 
