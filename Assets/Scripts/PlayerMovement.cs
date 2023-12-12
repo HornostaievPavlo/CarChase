@@ -11,6 +11,9 @@ public class PlayerMovement : MonoBehaviour
 
     private Rigidbody2D rb;
 
+    private const float HORIZONTAL_BORDER = 1.3f;
+    private const float VERTICAL_BORDER = 4.5f;
+
     private void Awake() => rb = GetComponent<Rigidbody2D>();
 
     private void FixedUpdate()
@@ -20,6 +23,9 @@ public class PlayerMovement : MonoBehaviour
 
         float newXPosition = rb.position.x + horizontalInput * horizontalSpeed * Time.fixedDeltaTime;
         float newYPosition = rb.position.y + verticalInput * verticalSpeed * Time.fixedDeltaTime;
+
+        newXPosition = Mathf.Clamp(newXPosition, -HORIZONTAL_BORDER, HORIZONTAL_BORDER);
+        newYPosition = Mathf.Clamp(newYPosition, -VERTICAL_BORDER, VERTICAL_BORDER);
 
         rb.MovePosition(new Vector2(newXPosition, newYPosition));
     }
