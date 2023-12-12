@@ -13,7 +13,7 @@ public class PlayerMovement : MonoBehaviour
 
     private float slowDownTimer = 0;
     private float slowDownDuration;
-    private float slowDownMultiplier = 0.75f;
+    private float slowDownMultiplier = 0.5f;
 
     private bool isSlowed = false;
 

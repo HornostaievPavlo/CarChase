@@ -3,12 +3,12 @@ using UnityEngine;
 public class PlayerCollisionHandler : MonoBehaviour
 {
     private PlayerMovement playerMovement;
-    private PlayerBooster booster;
+    private Booster booster;
 
     private void Awake()
     {
         playerMovement = GetComponent<PlayerMovement>();
-        booster = GetComponent<PlayerBooster>();
+        booster = GetComponent<Booster>();
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

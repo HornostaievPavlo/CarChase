@@ -428,8 +428,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c498ecdcd3f4c8040945d6580ab1a0c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  horizontalSpeed: 3
-  verticalSpeed: 5
+  horizontalSpeed: 2
+  verticalSpeed: 2.5
 --- !u!61 &651562070
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -605,7 +605,7 @@ GameObject:
   - component: {fileID: 751996000}
   - component: {fileID: 751995999}
   m_Layer: 0
-  m_Name: ObstaclesFactory
+  m_Name: GameEntitiesFactory
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -630,8 +630,13 @@ MonoBehaviour:
   - {fileID: 3330124111863519616, guid: fad26c82bcfccce478913e1e7c7d0ff4, type: 3}
   - {fileID: 9144982487340291423, guid: 96a49708813054b45b238ab4f59c1de3, type: 3}
   policeCarPrefab: {fileID: 4734774928053410460, guid: 2b37372bff6ba864291e993cafc7cb1a, type: 3}
-  maxObstaclesAmount: 4
   obstaclesSpawningRate: 1.25
+  boostersPrefabs:
+  - {fileID: 3918780507022136613, guid: ad87a9f5b0a12fe41b12b51f7a4e653d, type: 3}
+  - {fileID: 330490397324898607, guid: a3487a8832b20374a9c2a7469bac8f72, type: 3}
+  - {fileID: 6188758646561543539, guid: 893655549d14de340a3b748073d8b6f1, type: 3}
+  - {fileID: 8336606607534266622, guid: a18a35fa15427b64498243d22dda4537, type: 3}
+  boostersSpawningRate: 2
 --- !u!4 &751996000
 Transform:
   m_ObjectHideFlags: 0
