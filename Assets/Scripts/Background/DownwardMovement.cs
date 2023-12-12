@@ -1,9 +1,8 @@
 using UnityEngine;
 
-public class StartTileMovement : MonoBehaviour
+public class DownwardMovement : MonoBehaviour
 {
-    [SerializeField]
-    private float movementSpeed;
+    public float movementSpeed;
 
     private const float LOWER_BORDER = -10f;
 

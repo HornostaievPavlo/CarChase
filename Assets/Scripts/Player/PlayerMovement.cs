@@ -13,7 +13,7 @@ public class PlayerMovement : MonoBehaviour
 
     private float slowDownTimer = 0;
     private float slowDownDuration;
-    private float slowDownMultiplier = 0.5f;
+    private float slowDownMultiplier = 0.75f;
 
     private bool isSlowed = false;
 
@@ -47,7 +47,7 @@ public class PlayerMovement : MonoBehaviour
     private void MoveSlowed()
     {
         slowDownTimer += Time.deltaTime;
-        Debug.Log(slowDownTimer);
+
         if (slowDownTimer >= slowDownDuration)
         {
             slowDownTimer = 0;
@@ -67,6 +67,8 @@ public class PlayerMovement : MonoBehaviour
 
     public void SlowMovement(float effectDuration)
     {
+        if (isSlowed) return;
+
         isSlowed = true;
 
         slowDownDuration = effectDuration;

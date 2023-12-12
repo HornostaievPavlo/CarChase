@@ -20,10 +20,6 @@ public class BackgroundMovement : MonoBehaviour
         transform.Translate(verticalMovement);
 
         if (transform.position.y < RESET_POSITION)
-        {
             transform.position = startPos;
-
-            EventsHandler.OnRoadTileUpdated();
-        }
     }
 }
