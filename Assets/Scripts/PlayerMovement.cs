@@ -12,7 +12,7 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D rb;
 
     private const float HORIZONTAL_BORDER = 1.3f;
-    private const float VERTICAL_BORDER = 4.5f;
+    private const float VERTICAL_BORDER = 4.0f;
 
     private void Awake() => rb = GetComponent<Rigidbody2D>();
 
