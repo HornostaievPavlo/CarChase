@@ -29,4 +29,10 @@ public class PlayerMovement : MonoBehaviour
 
         rb.MovePosition(new Vector2(newXPosition, newYPosition));
     }
+
+    public void StopMovement()
+    {
+        horizontalSpeed = 0;
+        verticalSpeed = 0;
+    }
 }

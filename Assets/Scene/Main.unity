@@ -374,6 +374,8 @@ GameObject:
   - component: {fileID: 651562071}
   - component: {fileID: 651562070}
   - component: {fileID: 651562069}
+  - component: {fileID: 651562075}
+  - component: {fileID: 651562074}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -466,7 +468,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!212 &651562072
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -534,6 +536,31 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &651562074
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 651562068}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33be9cb92bea62944aa6ccf07606f3ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 2
+--- !u!114 &651562075
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 651562068}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7926c3ee79247b4aa48b5792fb3da44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &751995998
 GameObject:
   m_ObjectHideFlags: 0
@@ -564,8 +591,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   obstaclesPrefabs:
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 6547959842998316470, guid: 79eea60286b4383438b7f2a391f586e9, type: 3}
+  - {fileID: 5827986842224415762, guid: da6aff3119cc6fc4c87f4e2735ee7375, type: 3}
+  - {fileID: 1957389298439368461, guid: 3cb118a8d7bbc074687bebdfa0fae6a7, type: 3}
+  - {fileID: 3330124111863519616, guid: fad26c82bcfccce478913e1e7c7d0ff4, type: 3}
+  - {fileID: 9144982487340291423, guid: 96a49708813054b45b238ab4f59c1de3, type: 3}
   policeCarPrefab: {fileID: 4734774928053410460, guid: 2b37372bff6ba864291e993cafc7cb1a, type: 3}
   spawnPosition: {fileID: 0}
 --- !u!4 &751996000

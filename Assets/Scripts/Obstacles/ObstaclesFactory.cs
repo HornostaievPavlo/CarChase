@@ -11,9 +11,15 @@ public class ObstaclesFactory : MonoBehaviour
     [SerializeField]
     private Transform spawnPosition;
 
+    private const float POLICE_SPAWN_RATE = 60.0f;
+
+    private void Start()
+    {
+        InvokeRepeating(nameof(SpawnObstacle), 1f, POLICE_SPAWN_RATE);
+    }
+
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0)) SpawnObstacle();
     }
 
     private void SpawnObstacle()

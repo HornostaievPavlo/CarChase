@@ -2,8 +2,7 @@ using UnityEngine;
 
 public class PoliceCar : MonoBehaviour
 {
-    [SerializeField]
-    private float movementSpeed;
+    public float movementSpeed;
 
     public Transform player;
 
@@ -12,15 +11,12 @@ public class PoliceCar : MonoBehaviour
         player = FindObjectOfType<PlayerMovement>().transform;
     }
 
-    private void Update()
-    {
-        MoveTowardsPlayer();
-    }
+    private void Update() => MoveTowardsPlayer();
 
     private void MoveTowardsPlayer()
     {
         transform.position = Vector3.MoveTowards(transform.position,
-                                        player.position,
-                                        movementSpeed * Time.deltaTime);
+                                                 player.position,
+                                                 movementSpeed * Time.deltaTime);
     }
 }
