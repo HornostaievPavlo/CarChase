@@ -597,11 +597,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c498ecdcd3f4c8040945d6580ab1a0c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  horizontalSpeed: 3
-  verticalSpeed: 3.5
-  isSpeedModified: 0
-  currentHorSpeed: 0
-  currentVertSpeed: 0
+  horizontalSpeed: 3.25
+  verticalSpeed: 3
 --- !u!61 &651562070
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -902,7 +899,7 @@ MonoBehaviour:
   - {fileID: 1957389298439368461, guid: 3cb118a8d7bbc074687bebdfa0fae6a7, type: 3}
   - {fileID: 3330124111863519616, guid: fad26c82bcfccce478913e1e7c7d0ff4, type: 3}
   - {fileID: 9144982487340291423, guid: 96a49708813054b45b238ab4f59c1de3, type: 3}
-  obstaclesSpawningRate: 1.25
+  obstaclesSpawningRate: 1.5
   policeCarPrefab: {fileID: 4734774928053410460, guid: 2b37372bff6ba864291e993cafc7cb1a, type: 3}
   boostersPrefabs:
   - {fileID: 3918780507022136613, guid: ad87a9f5b0a12fe41b12b51f7a4e653d, type: 3}
@@ -910,7 +907,7 @@ MonoBehaviour:
   - {fileID: 6188758646561543539, guid: 893655549d14de340a3b748073d8b6f1, type: 3}
   - {fileID: 8336606607534266622, guid: a18a35fa15427b64498243d22dda4537, type: 3}
   - {fileID: 884038619334459409, guid: 3d3fd2d526539ba4dbf3789c81898f67, type: 3}
-  boostersSpawningRate: 2
+  boostersSpawningRate: 4
 --- !u!4 &751996000
 Transform:
   m_ObjectHideFlags: 0

@@ -26,6 +26,8 @@ public class PlayerMovement : MonoBehaviour
 
         currentHorSpeed = horizontalSpeed;
         currentVertSpeed = verticalSpeed;
+
+        EventsHandler.LevelFailed.AddListener(StopMovement);
     }
 
     private void FixedUpdate() => MovePlayer();
@@ -42,6 +44,12 @@ public class PlayerMovement : MonoBehaviour
         newYPosition = Mathf.Clamp(newYPosition, -VERTICAL_BORDER, VERTICAL_BORDER);
 
         rb.MovePosition(new Vector2(newXPosition, newYPosition));
+    }
+
+    private void StopMovement()
+    {
+        currentHorSpeed = 0f;
+        currentVertSpeed = 0f;
     }
 
     public IEnumerator ChangeMovementSpeed(float speedMultiplier, float effectDuration)

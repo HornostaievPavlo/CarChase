@@ -2,9 +2,10 @@ using UnityEngine;
 
 public class PoliceCar : MonoBehaviour
 {
-    public float movementSpeed;
+    [SerializeField]
+    private float movementSpeed;
 
-    public Transform player;
+    private Transform player;
 
     private void Start()
     {
@@ -12,6 +13,16 @@ public class PoliceCar : MonoBehaviour
     }
 
     private void Update() => MoveTowardsPlayer();
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        bool isPlayerHit = collision.gameObject.TryGetComponent(out PlayerMovement player);
+
+        if (!isPlayerHit)
+            Destroy(gameObject);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision) => Destroy(gameObject);
 
     private void MoveTowardsPlayer()
     {
