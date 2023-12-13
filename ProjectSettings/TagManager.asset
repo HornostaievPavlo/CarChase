@@ -53,3 +53,6 @@ TagManager:
   - name: Booster
     uniqueID: 4091690569
     locked: 0
+  - name: Effect
+    uniqueID: 2505577751
+    locked: 0

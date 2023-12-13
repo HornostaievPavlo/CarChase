@@ -506,6 +506,48 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: PauseButton
+      rect:
+        serializedVersion: 2
+        x: 2399
+        y: 1878
+        width: 140
+        height: 169
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0d5ac862b9219b9438c271d9e01d9f31
+      internalID: -1443282414
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CrushEffect
+      rect:
+        serializedVersion: 2
+        x: 3294
+        y: 1559
+        width: 167
+        height: 174
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 40293fcdbbdb5e9408a091727f631a12
+      internalID: 397604112
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -524,6 +566,7 @@ TextureImporter:
       Crack1: -649845174
       Crack2: 886054846
       Crack3: 492889049
+      CrushEffect: 397604112
       Game assets atlas_1: 46003664
       HealthBarFill: -1214433641
       HealthPoint: -830866137
@@ -532,6 +575,7 @@ TextureImporter:
       Nitro: -1174297908
       NitroFill: 1921129922
       OilPuddle: -932154452
+      PauseButton: -1443282414
       Shield: -498015718
       ShieldFill: -1768317954
       Spectator1: 224437480

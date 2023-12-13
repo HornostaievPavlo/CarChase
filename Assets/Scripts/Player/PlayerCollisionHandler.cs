@@ -51,10 +51,12 @@ public class PlayerCollisionHandler : MonoBehaviour
             {
                 case ObstacleType.PoliceCar:
                     playerHealth.DamagePlayer(playerHealth.maxHealth);
+                    EventsHandler.OnPlayerCrushed(collision.transform.position);
                     break;
 
                 case ObstacleType.Block:
                     playerHealth.DamagePlayer(playerHealth.maxHealth);
+                    EventsHandler.OnPlayerCrushed(collision.transform.position);
                     break;
             }
         }

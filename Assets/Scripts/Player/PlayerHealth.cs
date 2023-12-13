@@ -32,10 +32,8 @@ public class PlayerHealth : MonoBehaviour
 
         EventsHandler.OnPlayerHealthUpdated(currentHealthPercent);
 
-        if (currentHealth == 0)
+        if (currentHealth <= 0)
         {
-            Destroy(gameObject);
-
             EventsHandler.OnLevelFailed();
         }
     }
