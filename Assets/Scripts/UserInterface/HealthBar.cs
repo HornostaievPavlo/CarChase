@@ -10,12 +10,9 @@ public class HealthBar : MonoBehaviour
     [SerializeField]
     private float updateSpeed;
 
-    [SerializeField]
-    private PlayerHealth playerHealth;
-
     private void Awake()
     {
-        playerHealth.PlayerDamaged.AddListener(HandleHealthChange);
+        EventsHandler.PlayerHealthUpdated.AddListener(HandleHealthChange);
     }
 
     private void HandleHealthChange(float percent)

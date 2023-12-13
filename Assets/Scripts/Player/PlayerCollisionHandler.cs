@@ -7,17 +7,20 @@ public class PlayerCollisionHandler : MonoBehaviour
     [Space]
     [SerializeField] private float crackSlowDownMultiplier = 0.75f;
     [SerializeField] private float crackSlowingDuration = 5f;
+    [SerializeField] private float crackDamageAmount = 25f;
     [Space]
     [SerializeField] private float nitroSpeedUpMultiplier = 2.0f;
     [SerializeField] private float nitroDuration = 15.0f;
 
     private PlayerMovement playerMovement;
     private PlayerPickupsHandler pickupsHandler;
+    private PlayerHealth playerHealth;
 
     private void Awake()
     {
         playerMovement = GetComponent<PlayerMovement>();
         pickupsHandler = GetComponent<PlayerPickupsHandler>();
+        playerHealth = GetComponent<PlayerHealth>();
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -47,11 +50,11 @@ public class PlayerCollisionHandler : MonoBehaviour
             switch (obstacleType)
             {
                 case ObstacleType.PoliceCar:
-                    EventsHandler.OnLevelFailed();
+                    playerHealth.DamagePlayer(playerHealth.maxHealth);
                     break;
 
                 case ObstacleType.Block:
-                    EventsHandler.OnLevelFailed();
+                    playerHealth.DamagePlayer(playerHealth.maxHealth);
                     break;
             }
         }
@@ -88,6 +91,7 @@ public class PlayerCollisionHandler : MonoBehaviour
 
             case ObstacleType.Crack:
                 StartCoroutine(playerMovement.ChangeMovementSpeed(crackSlowDownMultiplier, crackSlowingDuration));
+                playerHealth.DamagePlayer(crackDamageAmount);
                 break;
         }
     }

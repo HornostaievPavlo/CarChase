@@ -1,33 +1,42 @@
 using UnityEngine;
-using UnityEngine.Events;
 
 public class PlayerHealth : MonoBehaviour
 {
-    [SerializeField]
-    private float maxHealth;
+    public float maxHealth;
 
     private float currentHealth;
 
-    public UnityEvent<float> PlayerDamaged = new UnityEvent<float>();
+    private const float HEALTH_POINT_VALUE = 25f;
 
     private void Start()
     {
         currentHealth = maxHealth;
 
-        PlayerDamaged.AddListener(ModifyHealth);
+        EventsHandler.HealthPointCollected.AddListener(HealPlayer);
     }
 
-    private void ModifyHealth(float amount)
+    private void HealPlayer()
     {
-        currentHealth -= amount;
+        if (currentHealth < maxHealth)
+        {
+            currentHealth += HEALTH_POINT_VALUE;
+            EventsHandler.OnPlayerHealthUpdated(currentHealth / maxHealth);
+        }
+    }
+
+    public void DamagePlayer(float damageAmount)
+    {
+        currentHealth -= damageAmount;
 
         float currentHealthPercent = currentHealth / maxHealth;
 
-        PlayerDamaged.Invoke(currentHealthPercent);
+        EventsHandler.OnPlayerHealthUpdated(currentHealthPercent);
 
         if (currentHealth == 0)
         {
             Destroy(gameObject);
+
+            EventsHandler.OnLevelFailed();
         }
     }
 }
