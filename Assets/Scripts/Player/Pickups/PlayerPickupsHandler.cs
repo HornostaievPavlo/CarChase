@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class PlayerPickupsHandler : MonoBehaviour
 {
-    public PickupState currentState;
+    public PickupState currentPickup;
 
     [SerializeField] private float pickUpEffectDuration = 15.0f;
 
@@ -17,7 +17,7 @@ public class PlayerPickupsHandler : MonoBehaviour
 
     private SpriteRenderer spriteRenderer;
 
-    public float pickUpTimer;
+    private float pickUpTimer;
 
     private void Awake()
     {
@@ -26,7 +26,7 @@ public class PlayerPickupsHandler : MonoBehaviour
 
     private void Update()
     {
-        if (currentState == PickupState.None) return;
+        if (currentPickup == PickupState.None) return;
 
         HandleCurrentState();
     }
@@ -35,9 +35,9 @@ public class PlayerPickupsHandler : MonoBehaviour
     {
         pickUpTimer = 0f;
 
-        currentState = newState;
+        currentPickup = newState;
 
-        switch (currentState)
+        switch (currentPickup)
         {
             case PickupState.None:
                 spriteRenderer.sprite = defaultPlayer;
@@ -52,6 +52,8 @@ public class PlayerPickupsHandler : MonoBehaviour
 
                 shieldGlow.SetActive(false);
                 nitroGlow.SetActive(false);
+
+                EventsHandler.OnMagnetActivated();
                 break;
 
             case PickupState.Shield:

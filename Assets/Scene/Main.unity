@@ -681,7 +681,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efceb88921fe6c345899e0a632c08f54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentState: 0
+  currentPickup: 0
+  pickUpEffectDuration: 15
   defaultPlayer: {fileID: 21300000, guid: ae471ad769d253548a10154fcee50cdd, type: 3}
   playerWithMagnet: {fileID: -2124429620, guid: 2dab3b31e92a93c43bef165f2f9df8d1, type: 3}
   playerWithShield: {fileID: -885099548, guid: 2dab3b31e92a93c43bef165f2f9df8d1, type: 3}

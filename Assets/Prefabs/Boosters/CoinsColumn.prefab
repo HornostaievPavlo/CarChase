@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3437637688238992945}
   - component: {fileID: 6710466056747845587}
   - component: {fileID: 5438138642156718356}
+  - component: {fileID: 7916543493814327191}
   m_Layer: 0
   m_Name: Coin (4)
   m_TagString: Untagged
@@ -144,6 +145,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 0
+--- !u!114 &7916543493814327191
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 907951599158766633}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 412524b3a9ad42e488e07e1b822d376e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movementSpeed: 2
 --- !u!1 &3918780507022136613
 GameObject:
   m_ObjectHideFlags: 0
@@ -192,6 +206,7 @@ GameObject:
   - component: {fileID: 4709805852057996795}
   - component: {fileID: 5149816170167641896}
   - component: {fileID: 4774359043003878130}
+  - component: {fileID: 9028243487977438783}
   m_Layer: 0
   m_Name: Coin (3)
   m_TagString: Untagged
@@ -324,6 +339,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 0
+--- !u!114 &9028243487977438783
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6295351142732470875}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 412524b3a9ad42e488e07e1b822d376e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movementSpeed: 2
 --- !u!1 &6878904807644056664
 GameObject:
   m_ObjectHideFlags: 0
@@ -336,6 +364,7 @@ GameObject:
   - component: {fileID: 6308970257674151183}
   - component: {fileID: 5805846068615617656}
   - component: {fileID: 9004872196921165853}
+  - component: {fileID: 713632781253563131}
   m_Layer: 0
   m_Name: Coin (2)
   m_TagString: Untagged
@@ -468,6 +497,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 0
+--- !u!114 &713632781253563131
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6878904807644056664}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 412524b3a9ad42e488e07e1b822d376e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movementSpeed: 2
 --- !u!1 &7300092613270423262
 GameObject:
   m_ObjectHideFlags: 0
@@ -480,6 +522,7 @@ GameObject:
   - component: {fileID: 8183566094411648716}
   - component: {fileID: 1511511276257358832}
   - component: {fileID: 5114181097099679448}
+  - component: {fileID: 7830489779842474995}
   m_Layer: 0
   m_Name: Coin (1)
   m_TagString: Untagged
@@ -612,6 +655,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 0
+--- !u!114 &7830489779842474995
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7300092613270423262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 412524b3a9ad42e488e07e1b822d376e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movementSpeed: 2
 --- !u!1 &9143876480820943142
 GameObject:
   m_ObjectHideFlags: 0
@@ -624,6 +680,7 @@ GameObject:
   - component: {fileID: 4832103275212139394}
   - component: {fileID: 8232227557674007795}
   - component: {fileID: 4192780198444973189}
+  - component: {fileID: 5353227853285485423}
   m_Layer: 0
   m_Name: Coin
   m_TagString: Untagged
@@ -756,3 +813,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 0
+--- !u!114 &5353227853285485423
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9143876480820943142}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 412524b3a9ad42e488e07e1b822d376e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movementSpeed: 2

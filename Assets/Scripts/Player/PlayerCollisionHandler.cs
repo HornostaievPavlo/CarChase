@@ -25,7 +25,7 @@ public class PlayerCollisionHandler : MonoBehaviour
     {
         bool isObstacleHit = collision.gameObject.TryGetComponent(out Obstacle obstacle);
 
-        if (isObstacleHit && pickupsHandler.currentState == PickupState.Shield)
+        if (isObstacleHit && pickupsHandler.currentPickup == PickupState.Shield)
         {
             Destroy(obstacle.gameObject);
             return;
@@ -38,15 +38,13 @@ public class PlayerCollisionHandler : MonoBehaviour
             switch (obstacleType)
             {
                 case ObstacleType.PoliceCar:
-
                     playerMovement.StopMovement();
-
+                    EventsHandler.OnLevelFailed();
                     break;
 
                 case ObstacleType.Block:
-
                     playerMovement.StopMovement();
-
+                    EventsHandler.OnLevelFailed();
                     break;
             }
         }
@@ -88,7 +86,7 @@ public class PlayerCollisionHandler : MonoBehaviour
             switch (boosterType)
             {
                 case BoosterType.Coin:
-
+                    EventsHandler.OnCoinCollected();
                     break;
 
                 case BoosterType.Magnet:
@@ -104,7 +102,7 @@ public class PlayerCollisionHandler : MonoBehaviour
                     break;
 
                 case BoosterType.HealthPoint:
-
+                    EventsHandler.OnHealthPointCollected();
                     break;
             }
 
