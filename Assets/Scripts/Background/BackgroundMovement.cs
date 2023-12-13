@@ -9,7 +9,12 @@ public class BackgroundMovement : MonoBehaviour
 
     private const float RESET_POSITION = 0f;
 
-    private void Start() => startPos = transform.position;
+    private void Start()
+    {
+        startPos = transform.position;
+
+        EventsHandler.LevelFailed.AddListener(StopMovement);
+    }
 
     private void Update() => MoveBackground();
 
@@ -21,5 +26,10 @@ public class BackgroundMovement : MonoBehaviour
 
         if (transform.position.y < RESET_POSITION)
             transform.position = startPos;
+    }
+
+    private void StopMovement()
+    {
+        movementSpeed = 0f;
     }
 }

@@ -2,9 +2,15 @@ using UnityEngine;
 
 public class DownwardMovement : MonoBehaviour
 {
-    public float movementSpeed;
+    [SerializeField]
+    private float movementSpeed = 3f;
 
     private const float LOWER_BORDER = -10f;
+
+    private void Start()
+    {
+        EventsHandler.LevelFailed.AddListener(StopMovement);
+    }
 
     private void Update()
     {
@@ -15,4 +21,6 @@ public class DownwardMovement : MonoBehaviour
         if (transform.position.y < LOWER_BORDER)
             Destroy(gameObject);
     }
+
+    private void StopMovement() => movementSpeed = 0f;
 }

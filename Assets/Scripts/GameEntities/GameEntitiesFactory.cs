@@ -22,6 +22,8 @@ public class GameEntitiesFactory : MonoBehaviour
 
     private void Start()
     {
+        EventsHandler.LevelFailed.AddListener(DisableFactory);
+
         InvokeRepeating(nameof(SpawnPoliceCar), POLICE_SPAWN_RATE, POLICE_SPAWN_RATE);
 
         float timeBeforeFirstObstacle = 5f;
@@ -29,6 +31,11 @@ public class GameEntitiesFactory : MonoBehaviour
 
         float timeBeforeFirstBooster = 5f;
         InvokeRepeating(nameof(SpawnRandomBooster), timeBeforeFirstBooster, boostersSpawningRate);
+    }
+
+    private void DisableFactory()
+    {
+        Destroy(this);
     }
 
     private void SpawnRandomObstacle() => SelectRandomEntity(obstaclesPrefabs);
@@ -46,8 +53,7 @@ public class GameEntitiesFactory : MonoBehaviour
         var newBooster = Instantiate(randomEntity, transform);
         newBooster.transform.localPosition = position;
 
-        var obstacleMovement = newBooster.AddComponent<DownwardMovement>();
-        obstacleMovement.movementSpeed = 3f;
+        newBooster.AddComponent<DownwardMovement>();
     }
 
     private void SpawnPoliceCar() => Instantiate(policeCarPrefab);

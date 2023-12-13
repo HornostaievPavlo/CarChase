@@ -2,6 +2,15 @@ using UnityEngine;
 
 public class PlayerCollisionHandler : MonoBehaviour
 {
+    [SerializeField] private float oilSlowDownMultiplier = 0.75f;
+    [SerializeField] private float oilSlowingDuration = 10f;
+    [Space]
+    [SerializeField] private float crackSlowDownMultiplier = 0.75f;
+    [SerializeField] private float crackSlowingDuration = 5f;
+    [Space]
+    [SerializeField] private float nitroSpeedUpMultiplier = 2.0f;
+    [SerializeField] private float nitroDuration = 15.0f;
+
     private PlayerMovement playerMovement;
     private PlayerPickupsHandler pickupsHandler;
 
@@ -38,12 +47,10 @@ public class PlayerCollisionHandler : MonoBehaviour
             switch (obstacleType)
             {
                 case ObstacleType.PoliceCar:
-                    playerMovement.StopMovement();
                     EventsHandler.OnLevelFailed();
                     break;
 
                 case ObstacleType.Block:
-                    playerMovement.StopMovement();
                     EventsHandler.OnLevelFailed();
                     break;
             }
@@ -56,24 +63,7 @@ public class PlayerCollisionHandler : MonoBehaviour
 
         if (isObstacleHit)
         {
-            var obstacleType = obstacle.type;
-
-            switch (obstacleType)
-            {
-                case ObstacleType.OilPuddle:
-
-                    float oilSlowingDuration = 10f;
-                    playerMovement.SlowMovement(oilSlowingDuration);
-                    break;
-
-                case ObstacleType.Crack:
-
-                    float crackSlowingDuration = 5f;
-                    playerMovement.SlowMovement(crackSlowingDuration);
-
-                    break;
-            }
-
+            ApplyObstacleEffect(obstacle);
             return;
         }
 
@@ -81,32 +71,54 @@ public class PlayerCollisionHandler : MonoBehaviour
 
         if (isBoosterHit)
         {
-            var boosterType = booster.type;
-
-            switch (boosterType)
-            {
-                case BoosterType.Coin:
-                    EventsHandler.OnCoinCollected();
-                    break;
-
-                case BoosterType.Magnet:
-                    pickupsHandler.SetPickupState(PickupState.Magnet);
-                    break;
-
-                case BoosterType.Shield:
-                    pickupsHandler.SetPickupState(PickupState.Shield);
-                    break;
-
-                case BoosterType.Nitro:
-                    pickupsHandler.SetPickupState(PickupState.Nitro);
-                    break;
-
-                case BoosterType.HealthPoint:
-                    EventsHandler.OnHealthPointCollected();
-                    break;
-            }
-
+            ApplyBoosterEffect(booster);
             Destroy(collision.gameObject);
+        }
+    }
+
+    private void ApplyObstacleEffect(Obstacle obstacle)
+    {
+        var obstacleType = obstacle.type;
+
+        switch (obstacleType)
+        {
+            case ObstacleType.OilPuddle:
+                StartCoroutine(playerMovement.ChangeMovementSpeed(oilSlowDownMultiplier, oilSlowingDuration));
+                break;
+
+            case ObstacleType.Crack:
+                StartCoroutine(playerMovement.ChangeMovementSpeed(crackSlowDownMultiplier, crackSlowingDuration));
+                break;
+        }
+    }
+
+    private void ApplyBoosterEffect(Booster booster)
+    {
+        var boosterType = booster.type;
+
+        switch (boosterType)
+        {
+            case BoosterType.Coin:
+                EventsHandler.OnCoinCollected();
+                break;
+
+            case BoosterType.Magnet:
+                pickupsHandler.SetPickupState(PickupState.Magnet);
+                break;
+
+            case BoosterType.Shield:
+                pickupsHandler.SetPickupState(PickupState.Shield);
+                break;
+
+            case BoosterType.Nitro:
+                pickupsHandler.SetPickupState(PickupState.Nitro);
+                playerMovement.ResetSpeed();
+                StartCoroutine(playerMovement.ChangeMovementSpeed(nitroSpeedUpMultiplier, nitroDuration));
+                break;
+
+            case BoosterType.HealthPoint:
+                EventsHandler.OnHealthPointCollected();
+                break;
         }
     }
 }

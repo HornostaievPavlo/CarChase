@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
@@ -11,32 +12,31 @@ public class PlayerMovement : MonoBehaviour
 
     private Rigidbody2D rb;
 
-    private float slowDownTimer = 0;
-    private float slowDownDuration;
-    private float slowDownMultiplier = 0.75f;
-
-    private bool isSlowed = false;
+    [SerializeField]
+    private float currentHorSpeed;
+    [SerializeField]
+    private float currentVertSpeed;
 
     private const float HORIZONTAL_BORDER = 1.3f;
     private const float VERTICAL_BORDER = 4.0f;
 
-    private void Awake() => rb = GetComponent<Rigidbody2D>();
-
-    private void FixedUpdate()
+    private void Awake()
     {
-        MovePlayer();
+        rb = GetComponent<Rigidbody2D>();
 
-        if (isSlowed)
-            MoveSlowed();
+        currentHorSpeed = horizontalSpeed;
+        currentVertSpeed = verticalSpeed;
     }
+
+    private void FixedUpdate() => MovePlayer();
 
     private void MovePlayer()
     {
         float verticalInput = Input.GetAxis("Vertical");
         float horizontalInput = Input.GetAxis("Horizontal");
 
-        float newXPosition = rb.position.x + horizontalInput * horizontalSpeed * Time.fixedDeltaTime;
-        float newYPosition = rb.position.y + verticalInput * verticalSpeed * Time.fixedDeltaTime;
+        float newXPosition = rb.position.x + horizontalInput * currentHorSpeed * Time.fixedDeltaTime;
+        float newYPosition = rb.position.y + verticalInput * currentVertSpeed * Time.fixedDeltaTime;
 
         newXPosition = Mathf.Clamp(newXPosition, -HORIZONTAL_BORDER, HORIZONTAL_BORDER);
         newYPosition = Mathf.Clamp(newYPosition, -VERTICAL_BORDER, VERTICAL_BORDER);
@@ -44,36 +44,20 @@ public class PlayerMovement : MonoBehaviour
         rb.MovePosition(new Vector2(newXPosition, newYPosition));
     }
 
-    private void MoveSlowed()
+    public IEnumerator ChangeMovementSpeed(float speedMultiplier, float effectDuration)
     {
-        slowDownTimer += Time.deltaTime;
+        currentHorSpeed *= speedMultiplier;
+        currentVertSpeed *= speedMultiplier;
 
-        if (slowDownTimer >= slowDownDuration)
-        {
-            slowDownTimer = 0;
+        yield return new WaitForSecondsRealtime(effectDuration);
 
-            horizontalSpeed /= slowDownMultiplier;
-            verticalSpeed /= slowDownMultiplier;
-
-            isSlowed = false;
-        }
+        currentHorSpeed = horizontalSpeed;
+        currentVertSpeed = verticalSpeed;
     }
 
-    public void StopMovement()
+    public void ResetSpeed()
     {
-        horizontalSpeed = 0;
-        verticalSpeed = 0;
-    }
-
-    public void SlowMovement(float effectDuration)
-    {
-        if (isSlowed) return;
-
-        isSlowed = true;
-
-        slowDownDuration = effectDuration;
-
-        horizontalSpeed *= slowDownMultiplier;
-        verticalSpeed *= slowDownMultiplier;
+        currentHorSpeed = horizontalSpeed;
+        currentVertSpeed = verticalSpeed;
     }
 }

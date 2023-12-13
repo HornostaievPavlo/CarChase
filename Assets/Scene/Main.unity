@@ -513,8 +513,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c498ecdcd3f4c8040945d6580ab1a0c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  horizontalSpeed: 3
+  horizontalSpeed: 4
   verticalSpeed: 3.5
+  currentHorSpeed: 0
+  currentVertSpeed: 0
 --- !u!61 &651562070
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -669,6 +671,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7926c3ee79247b4aa48b5792fb3da44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  oilSlowDownMultiplier: 0.6
+  oilSlowingDuration: 10
+  crackSlowDownMultiplier: 0.6
+  crackSlowingDuration: 5
+  nitroSpeedUpMultiplier: 1.3
+  nitroDuration: 15
 --- !u!114 &651562076
 MonoBehaviour:
   m_ObjectHideFlags: 0
