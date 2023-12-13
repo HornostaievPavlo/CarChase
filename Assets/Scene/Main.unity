@@ -181,7 +181,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Nitro
+  m_text: '
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 0cf044784e4d1f547ace0d95ed276d50, type: 2}
   m_sharedMaterial: {fileID: 4769671516381378339, guid: 0cf044784e4d1f547ace0d95ed276d50, type: 2}
@@ -270,7 +272,7 @@ GameObject:
   - component: {fileID: 108406642}
   - component: {fileID: 108406641}
   m_Layer: 5
-  m_Name: FillImage
+  m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -460,6 +462,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 320691413}
+  - component: {fileID: 320691415}
+  - component: {fileID: 320691414}
   m_Layer: 5
   m_Name: Bars
   m_TagString: Untagged
@@ -489,6 +493,37 @@ RectTransform:
   m_AnchoredPosition: {x: -111.035, y: -82.087036}
   m_SizeDelta: {x: 182.07, y: 52}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &320691414
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 320691412}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb56d81c753d3c145882c4924e0a2b9b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pickupsHandler: {fileID: 651562076}
+  barParent: {fileID: 1508980533}
+  magnetFill: {fileID: -1695868480, guid: 41f4d6b7c64c00649b88b7292c116066, type: 3}
+  shieldFill: {fileID: -1768317954, guid: 41f4d6b7c64c00649b88b7292c116066, type: 3}
+  nitroFill: {fileID: 1921129922, guid: 41f4d6b7c64c00649b88b7292c116066, type: 3}
+--- !u!114 &320691415
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 320691412}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1b4b3211c8c120419d1480042a92d25, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fillImage: {fileID: 108406641}
+  updateSpeed: 1
 --- !u!1 &325608787
 GameObject:
   m_ObjectHideFlags: 0
@@ -1133,6 +1168,7 @@ MonoBehaviour:
   magnetGlow: {fileID: 1734290660}
   shieldGlow: {fileID: 992563910}
   nitroGlow: {fileID: 1725173323}
+  pickUpTimer: 0
 --- !u!114 &651562077
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1146,7 +1182,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
-  currentHealth: 0
 --- !u!1 &669782485
 GameObject:
   m_ObjectHideFlags: 0
@@ -2633,6 +2668,63 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1001 &1483500562
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 330490397324898607, guid: a3487a8832b20374a9c2a7469bac8f72, type: 3}
+      propertyPath: m_Name
+      value: Magnet
+      objectReference: {fileID: 0}
+    - target: {fileID: 796660595854505979, guid: a3487a8832b20374a9c2a7469bac8f72, type: 3}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 796660595854505979, guid: a3487a8832b20374a9c2a7469bac8f72, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 796660595854505979, guid: a3487a8832b20374a9c2a7469bac8f72, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 796660595854505979, guid: a3487a8832b20374a9c2a7469bac8f72, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 796660595854505979, guid: a3487a8832b20374a9c2a7469bac8f72, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 796660595854505979, guid: a3487a8832b20374a9c2a7469bac8f72, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 796660595854505979, guid: a3487a8832b20374a9c2a7469bac8f72, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 796660595854505979, guid: a3487a8832b20374a9c2a7469bac8f72, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 796660595854505979, guid: a3487a8832b20374a9c2a7469bac8f72, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 796660595854505979, guid: a3487a8832b20374a9c2a7469bac8f72, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 796660595854505979, guid: a3487a8832b20374a9c2a7469bac8f72, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: a3487a8832b20374a9c2a7469bac8f72, type: 3}
 --- !u!1 &1508980533
 GameObject:
   m_ObjectHideFlags: 0
@@ -2643,7 +2735,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1508980534}
   m_Layer: 5
-  m_Name: BoosterBar
+  m_Name: PickUpBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3402,7 +3494,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1970221525}
-  - component: {fileID: 1970221526}
   m_Layer: 5
   m_Name: HealthBar
   m_TagString: Untagged
@@ -3433,20 +3524,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0.000013471, y: -11}
   m_SizeDelta: {x: 182.07, y: 22}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1970221526
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1970221524}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a1b4b3211c8c120419d1480042a92d25, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fillImage: {fileID: 108406641}
-  updateSpeed: 1
 --- !u!1 &2015133951
 GameObject:
   m_ObjectHideFlags: 0
@@ -3459,7 +3536,7 @@ GameObject:
   - component: {fileID: 2015133954}
   - component: {fileID: 2015133953}
   m_Layer: 5
-  m_Name: FillImage
+  m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3505,7 +3582,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 1921129922, guid: 41f4d6b7c64c00649b88b7292c116066, type: 3}
+  m_Sprite: {fileID: -1214433641, guid: 41f4d6b7c64c00649b88b7292c116066, type: 3}
   m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1

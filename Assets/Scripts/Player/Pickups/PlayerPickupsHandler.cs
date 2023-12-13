@@ -4,7 +4,7 @@ public class PlayerPickupsHandler : MonoBehaviour
 {
     public PickupState currentPickup;
 
-    [SerializeField] private float pickUpEffectDuration = 15.0f;
+    public float pickUpEffectDuration = 15.0f;
 
     [SerializeField] private Sprite defaultPlayer;
     [SerializeField] private Sprite playerWithMagnet;
@@ -17,7 +17,7 @@ public class PlayerPickupsHandler : MonoBehaviour
 
     private SpriteRenderer spriteRenderer;
 
-    private float pickUpTimer;
+    public float pickUpTimer;
 
     private void Awake()
     {
@@ -33,7 +33,7 @@ public class PlayerPickupsHandler : MonoBehaviour
 
     public void SetPickupState(PickupState newState)
     {
-        pickUpTimer = 0f;
+        pickUpTimer = pickUpEffectDuration;
 
         currentPickup = newState;
 
@@ -53,7 +53,6 @@ public class PlayerPickupsHandler : MonoBehaviour
                 shieldGlow.SetActive(false);
                 nitroGlow.SetActive(false);
 
-                EventsHandler.OnMagnetActivated();
                 break;
 
             case PickupState.Shield:
@@ -76,11 +75,11 @@ public class PlayerPickupsHandler : MonoBehaviour
 
     private void HandleCurrentState()
     {
-        pickUpTimer += Time.deltaTime;
+        pickUpTimer -= Time.deltaTime;
 
-        if (pickUpTimer >= pickUpEffectDuration)
+        if (pickUpTimer < 0f)
         {
-            pickUpTimer = 0f;
+            pickUpTimer = pickUpEffectDuration;
             SetPickupState(PickupState.None);
         }
     }
