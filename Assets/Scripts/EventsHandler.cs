@@ -3,8 +3,6 @@ using UnityEngine.Events;
 
 public static class EventsHandler
 {
-    public static UnityEvent<float> PlayerHealthUpdated = new UnityEvent<float>();
-
     public static UnityEvent MagnetActivated = new UnityEvent();
 
     public static UnityEvent CoinCollected = new UnityEvent();
