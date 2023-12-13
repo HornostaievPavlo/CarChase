@@ -3,12 +3,12 @@ using UnityEngine;
 public class PlayerCollisionHandler : MonoBehaviour
 {
     private PlayerMovement playerMovement;
-    //private Booster booster;
+    private PlayerPickupsHandler pickupsHandler;
 
     private void Awake()
     {
         playerMovement = GetComponent<PlayerMovement>();
-        //booster = GetComponent<Booster>();
+        pickupsHandler = GetComponent<PlayerPickupsHandler>();
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -25,11 +25,11 @@ public class PlayerCollisionHandler : MonoBehaviour
     {
         bool isObstacleHit = collision.gameObject.TryGetComponent(out Obstacle obstacle);
 
-        //if (isObstacleHit && booster.type == BoosterType.Shield)
-        //{
-        //    Destroy(obstacle.gameObject);
-        //    return;
-        //}
+        if (isObstacleHit && pickupsHandler.currentState == PickupState.Shield)
+        {
+            Destroy(obstacle.gameObject);
+            return;
+        }
 
         if (isObstacleHit)
         {
@@ -66,7 +66,6 @@ public class PlayerCollisionHandler : MonoBehaviour
 
                     float oilSlowingDuration = 10f;
                     playerMovement.SlowMovement(oilSlowingDuration);
-
                     break;
 
                 case ObstacleType.Crack:
@@ -93,15 +92,15 @@ public class PlayerCollisionHandler : MonoBehaviour
                     break;
 
                 case BoosterType.Magnet:
-
+                    pickupsHandler.SetPickupState(PickupState.Magnet);
                     break;
 
                 case BoosterType.Shield:
-
+                    pickupsHandler.SetPickupState(PickupState.Shield);
                     break;
 
                 case BoosterType.Nitro:
-
+                    pickupsHandler.SetPickupState(PickupState.Nitro);
                     break;
 
                 case BoosterType.HealthPoint:
