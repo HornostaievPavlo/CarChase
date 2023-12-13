@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -13,7 +14,7 @@ public class PopUpMenu : MonoBehaviour
     {
         SetTimeScale(1.0f);
 
-        EventsHandler.LevelFailed.AddListener(ShowGameOverMenu);
+        EventsHandler.LevelFailed.AddListener(WaitForGameOverMenu);
     }
 
     private void SetTimeScale(float newTimeScale) => Time.timeScale = newTimeScale;
@@ -30,8 +31,14 @@ public class PopUpMenu : MonoBehaviour
         SetTimeScale(1.0f);
     }
 
-    private void ShowGameOverMenu()
+    private void WaitForGameOverMenu()
     {
+        StartCoroutine(ShowGameOverMenu());
+    }
+
+    private IEnumerator ShowGameOverMenu()
+    {
+        yield return new WaitForSeconds(2f);
         gameOverMenu.SetActive(true);
     }
 
