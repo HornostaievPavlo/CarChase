@@ -12,10 +12,10 @@ public class PlayerMovement : MonoBehaviour
 
     private Rigidbody2D rb;
 
-    [SerializeField]
     private float currentHorSpeed;
-    [SerializeField]
     private float currentVertSpeed;
+
+    private bool isSpeedModified = false;
 
     private const float HORIZONTAL_BORDER = 1.3f;
     private const float VERTICAL_BORDER = 4.0f;
@@ -46,6 +46,11 @@ public class PlayerMovement : MonoBehaviour
 
     public IEnumerator ChangeMovementSpeed(float speedMultiplier, float effectDuration)
     {
+        if (isSpeedModified)
+            yield break;
+
+        isSpeedModified = true;
+
         currentHorSpeed *= speedMultiplier;
         currentVertSpeed *= speedMultiplier;
 
@@ -53,11 +58,15 @@ public class PlayerMovement : MonoBehaviour
 
         currentHorSpeed = horizontalSpeed;
         currentVertSpeed = verticalSpeed;
+
+        isSpeedModified = false;
     }
 
     public void ResetSpeed()
     {
         currentHorSpeed = horizontalSpeed;
         currentVertSpeed = verticalSpeed;
+
+        isSpeedModified = false;
     }
 }
