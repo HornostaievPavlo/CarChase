@@ -722,7 +722,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 154219597}
-  - component: {fileID: 154219598}
   m_Layer: 5
   m_Name: Score
   m_TagString: Untagged
@@ -752,18 +751,6 @@ RectTransform:
   m_AnchoredPosition: {x: 67.5, y: -118}
   m_SizeDelta: {x: 73, y: 44}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &154219598
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 154219596}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b20469ff4b8fae74b94aa33295c194d2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &156060253
 GameObject:
   m_ObjectHideFlags: 0
@@ -2909,6 +2896,8 @@ MonoBehaviour:
   obstaclesSpawningRate: 1.5
   policeCarPrefab: {fileID: 4734774928053410460, guid: 2b37372bff6ba864291e993cafc7cb1a, type: 3}
   boostersPrefabs:
+  - {fileID: 3918780507022136613, guid: 597f9373def39a84db9f7f441ba67314, type: 3}
+  - {fileID: 3918780507022136613, guid: 3c5ceabf1e8a6ca42afe418be352e627, type: 3}
   - {fileID: 3918780507022136613, guid: ad87a9f5b0a12fe41b12b51f7a4e653d, type: 3}
   - {fileID: 330490397324898607, guid: a3487a8832b20374a9c2a7469bac8f72, type: 3}
   - {fileID: 6188758646561543539, guid: 893655549d14de340a3b748073d8b6f1, type: 3}
@@ -6132,6 +6121,53 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1863417924
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1863417926}
+  - component: {fileID: 1863417925}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1863417925
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1863417924}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b20469ff4b8fae74b94aa33295c194d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bestScoreText: {fileID: 2139645825}
+  menuScoreText: {fileID: 862391781}
+  onScreenScoreText: {fileID: 628185580}
+--- !u!4 &1863417926
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1863417924}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1907757888
 GameObject:
   m_ObjectHideFlags: 0
