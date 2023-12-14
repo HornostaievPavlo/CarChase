@@ -21,21 +21,22 @@ public class ScoreCounter : MonoBehaviour
     {
         currentScore = 0;
 
+        bestScore = PlayerPrefs.GetInt("BestScore", 0);
         bestScoreText.text = bestScore.ToString();
 
         EventsHandler.CoinCollected.AddListener(IncreaseScore);
-        EventsHandler.LevelFailed.AddListener(ShowScore);
-
-        DontDestroyOnLoad(this.gameObject);
+        EventsHandler.LevelFailed.AddListener(UpdateBestScore);
     }
 
-    private void ShowScore()
+    private void UpdateBestScore()
     {
         if (currentScore > bestScore)
         {
             bestScore = currentScore;
-
             bestScoreText.text = bestScore.ToString();
+
+            PlayerPrefs.SetInt("BestScore", bestScore);
+            PlayerPrefs.Save();
         }
 
         menuScoreText.text = currentScore.ToString();

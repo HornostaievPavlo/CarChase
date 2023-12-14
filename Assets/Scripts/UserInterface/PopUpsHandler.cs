@@ -6,6 +6,9 @@ using UnityEngine.SceneManagement;
 public class PopUpsHandler : MonoBehaviour
 {
     [SerializeField]
+    private GameObject inGameUI;
+
+    [SerializeField]
     private GameObject startMenu;
 
     [SerializeField]
@@ -47,6 +50,7 @@ public class PopUpsHandler : MonoBehaviour
         yield return new WaitForSecondsRealtime(1f);
 
         startMenu.SetActive(false);
+        inGameUI.SetActive(true);
 
         SetTimeScale(1f);
     }
