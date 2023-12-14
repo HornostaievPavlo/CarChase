@@ -7,9 +7,6 @@ public class HealthBar : MonoBehaviour
     [SerializeField]
     private Image fillImage;
 
-    [SerializeField]
-    private float updateSpeed;
-
     private void Awake()
     {
         EventsHandler.PlayerHealthUpdated.AddListener(HandleHealthChange);
@@ -22,9 +19,9 @@ public class HealthBar : MonoBehaviour
 
     private IEnumerator ChangeToPercent(float percent)
     {
-        float preChangePercent = fillImage.fillAmount;
-
         float elapsedTime = 0f;
+        float updateSpeed = 1.5f;
+        float preChangePercent = fillImage.fillAmount;
 
         while (elapsedTime < updateSpeed)
         {

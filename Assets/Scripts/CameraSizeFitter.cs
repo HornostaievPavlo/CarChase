@@ -2,15 +2,16 @@ using UnityEngine;
 
 public class CameraSizeFitter : MonoBehaviour
 {
-    private Camera _camera;
+    [SerializeField]
+    private SpriteRenderer roadTile;
 
-    public SpriteRenderer roadTile;
+    private Camera _camera;
 
     private void Awake()
     {
         _camera = GetComponent<Camera>();
 
-        float fitSize = roadTile.bounds.size.x * Screen.height / Screen.width * 0.5f;
-        _camera.orthographicSize = fitSize;
+        float sizeToFitRoadWidth = roadTile.bounds.size.x * Screen.height / Screen.width * 0.5f;
+        _camera.orthographicSize = sizeToFitRoadWidth;
     }
 }

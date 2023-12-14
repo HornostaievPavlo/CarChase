@@ -4,7 +4,7 @@ using UnityEngine;
 public class EffectsPlayer : MonoBehaviour
 {
     [SerializeField]
-    private GameObject crushPrefab;
+    private GameObject crushEffect;
 
     [SerializeField]
     private GameObject crushPanel;
@@ -16,7 +16,7 @@ public class EffectsPlayer : MonoBehaviour
 
     private void PlayCrushEffect(Vector3 crushPosition)
     {
-        var newCrush = Instantiate(crushPrefab, crushPosition, Quaternion.identity);
+        var newCrush = Instantiate(crushEffect, crushPosition, Quaternion.identity);
 
         StartCoroutine(ShowCrushPanel(newCrush));
     }

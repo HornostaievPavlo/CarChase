@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour
 {
-    public float maxHealth;
+    public float maxHealth = 100f;
 
     private float currentHealth;
 
@@ -27,14 +27,11 @@ public class PlayerHealth : MonoBehaviour
     public void DamagePlayer(float damageAmount)
     {
         currentHealth -= damageAmount;
+        float changePercent = currentHealth / maxHealth;
 
-        float currentHealthPercent = currentHealth / maxHealth;
-
-        EventsHandler.OnPlayerHealthUpdated(currentHealthPercent);
+        EventsHandler.OnPlayerHealthUpdated(changePercent);
 
         if (currentHealth <= 0)
-        {
             EventsHandler.OnLevelFailed();
-        }
     }
 }

@@ -3,19 +3,15 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class PopUpsHandler : MonoBehaviour
+public class MenusHandler : MonoBehaviour
 {
-    [SerializeField]
-    private GameObject inGameUI;
+    [SerializeField] private GameObject inGameUI;
 
-    [SerializeField]
-    private GameObject startMenu;
+    [SerializeField] private GameObject startMenu;
 
-    [SerializeField]
-    private GameObject pauseMenu;
+    [SerializeField] private GameObject pauseMenu;
 
-    [SerializeField]
-    private GameObject gameOverMenu;
+    [SerializeField] private GameObject gameOverMenu;
 
     private TMP_Text countdownText;
     private const float COUNTDOWN_DURATION = 3f;
@@ -24,13 +20,11 @@ public class PopUpsHandler : MonoBehaviour
     {
         SetTimeScale(0f);
 
-        EventsHandler.LevelFailed.AddListener(WaitForGameOverMenu);
+        EventsHandler.LevelFailed.AddListener(DelayGameOverMenu);
 
         countdownText = startMenu.GetComponentInChildren<TMP_Text>();
         StartCoroutine(StartCountdown());
     }
-
-    private void SetTimeScale(float newTimeScale) => Time.timeScale = newTimeScale;
 
     private IEnumerator StartCountdown()
     {
@@ -55,7 +49,9 @@ public class PopUpsHandler : MonoBehaviour
         SetTimeScale(1f);
     }
 
-    private void WaitForGameOverMenu()
+    private void SetTimeScale(float newTimeScale) => Time.timeScale = newTimeScale;
+
+    private void DelayGameOverMenu()
     {
         StartCoroutine(ShowGameOverMenu());
     }

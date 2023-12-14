@@ -15,8 +15,8 @@ public class PlayerMovement : MonoBehaviour
     private float currentHorSpeed;
     private float currentVertSpeed;
 
-    public float verticalInput;
-    public float horizontalInput;
+    private float verticalInput;
+    private float horizontalInput;
 
     private bool isSpeedModified = false;
 

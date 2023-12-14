@@ -2,9 +2,10 @@ using UnityEngine;
 
 public class PlayerPickupsHandler : MonoBehaviour
 {
-    public PickupState currentPickup;
+    [HideInInspector] public PickupState currentPickup;
 
-    public float pickUpEffectDuration = 15.0f;
+    [HideInInspector] public float pickUpTimer;
+    [HideInInspector] public float pickUpEffectDuration = 15.0f;
 
     [SerializeField] private Sprite defaultPlayer;
     [SerializeField] private Sprite playerWithMagnet;
@@ -17,26 +18,34 @@ public class PlayerPickupsHandler : MonoBehaviour
 
     private SpriteRenderer spriteRenderer;
 
-    public float pickUpTimer;
-
     private void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
-        EventsHandler.LevelFailed.AddListener(() => SetPickupState(PickupState.None));
+        EventsHandler.LevelFailed.AddListener(() => UpdatePickupVisual(PickupState.None));
     }
 
     private void Update()
     {
         if (currentPickup == PickupState.None) return;
 
-        HandleCurrentState();
+        UpdatePickupTimer();
     }
 
-    public void SetPickupState(PickupState newState)
+    private void UpdatePickupTimer()
+    {
+        pickUpTimer -= Time.deltaTime;
+
+        if (pickUpTimer < 0f)
+        {
+            pickUpTimer = pickUpEffectDuration;
+            UpdatePickupVisual(PickupState.None);
+        }
+    }
+
+    public void UpdatePickupVisual(PickupState newPickup)
     {
         pickUpTimer = pickUpEffectDuration;
-
-        currentPickup = newState;
+        currentPickup = newPickup;
 
         switch (currentPickup)
         {
@@ -71,17 +80,6 @@ public class PlayerPickupsHandler : MonoBehaviour
                 magnetGlow.SetActive(false);
                 shieldGlow.SetActive(false);
                 break;
-        }
-    }
-
-    private void HandleCurrentState()
-    {
-        pickUpTimer -= Time.deltaTime;
-
-        if (pickUpTimer < 0f)
-        {
-            pickUpTimer = pickUpEffectDuration;
-            SetPickupState(PickupState.None);
         }
     }
 }

@@ -2,15 +2,11 @@ using UnityEngine;
 
 public class PoliceCar : MonoBehaviour
 {
-    [SerializeField]
-    private float movementSpeed;
+    private float movementSpeed = 2f;
 
     private Transform player;
 
-    private void Start()
-    {
-        player = FindObjectOfType<PlayerMovement>().transform;
-    }
+    private void Start() => player = FindObjectOfType<PlayerMovement>().transform;
 
     private void Update() => MoveTowardsPlayer();
 
@@ -18,7 +14,9 @@ public class PoliceCar : MonoBehaviour
     {
         bool isPlayerHit = collision.gameObject.TryGetComponent(out PlayerMovement player);
 
-        if (!isPlayerHit)
+        if (isPlayerHit)
+            movementSpeed = 0f;
+        else
             Destroy(gameObject);
     }
 

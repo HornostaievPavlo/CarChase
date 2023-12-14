@@ -2,19 +2,19 @@ using UnityEngine;
 
 public class PlayerCollisionHandler : MonoBehaviour
 {
-    [SerializeField] private float oilSlowDownMultiplier = 0.75f;
-    [SerializeField] private float oilSlowingDuration = 10f;
-    [Space]
-    [SerializeField] private float crackSlowDownMultiplier = 0.75f;
-    [SerializeField] private float crackSlowingDuration = 5f;
-    [SerializeField] private float crackDamageAmount = 25f;
-    [Space]
-    [SerializeField] private float nitroSpeedUpMultiplier = 2.0f;
-    [SerializeField] private float nitroDuration = 15.0f;
-
     private PlayerMovement playerMovement;
     private PlayerPickupsHandler pickupsHandler;
     private PlayerHealth playerHealth;
+
+    private float oilSlowDownMultiplier = 0.75f;
+    private float oilSlowingDuration = 10f;
+
+    private float crackSlowDownMultiplier = 0.75f;
+    private float crackSlowingDuration = 5f;
+    private float crackDamageAmount = 25f;
+
+    private float nitroSpeedUpMultiplier = 2.0f;
+    private float nitroDuration = 15.0f;
 
     private void Awake()
     {
@@ -47,17 +47,11 @@ public class PlayerCollisionHandler : MonoBehaviour
         {
             var obstacleType = obstacle.type;
 
-            switch (obstacleType)
+            if (obstacleType == ObstacleType.PoliceCar ||
+                obstacleType == ObstacleType.Block)
             {
-                case ObstacleType.PoliceCar:
-                    playerHealth.DamagePlayer(playerHealth.maxHealth);
-                    EventsHandler.OnPlayerCrushed(collision.transform.position);
-                    break;
-
-                case ObstacleType.Block:
-                    playerHealth.DamagePlayer(playerHealth.maxHealth);
-                    EventsHandler.OnPlayerCrushed(collision.transform.position);
-                    break;
+                playerHealth.DamagePlayer(playerHealth.maxHealth);
+                EventsHandler.OnPlayerCrushed(collision.transform.position);
             }
         }
     }
@@ -71,11 +65,9 @@ public class PlayerCollisionHandler : MonoBehaviour
             ApplyObstacleEffect(obstacle);
             return;
         }
-
-        bool isBoosterHit = collision.gameObject.TryGetComponent(out Booster booster);
-
-        if (isBoosterHit)
+        else
         {
+            var booster = collision.gameObject.GetComponent<Booster>();
             ApplyBoosterEffect(booster);
             Destroy(collision.gameObject);
         }
@@ -88,11 +80,14 @@ public class PlayerCollisionHandler : MonoBehaviour
         switch (obstacleType)
         {
             case ObstacleType.OilPuddle:
-                StartCoroutine(playerMovement.ChangeMovementSpeed(oilSlowDownMultiplier, oilSlowingDuration));
+                StartCoroutine(playerMovement.ChangeMovementSpeed
+                    (oilSlowDownMultiplier, oilSlowingDuration));
                 break;
 
             case ObstacleType.Crack:
-                StartCoroutine(playerMovement.ChangeMovementSpeed(crackSlowDownMultiplier, crackSlowingDuration));
+                StartCoroutine(playerMovement.ChangeMovementSpeed
+                    (crackSlowDownMultiplier, crackSlowingDuration));
+
                 playerHealth.DamagePlayer(crackDamageAmount);
                 EventsHandler.OnPlayerCrushed(transform.position);
                 break;
@@ -110,17 +105,18 @@ public class PlayerCollisionHandler : MonoBehaviour
                 break;
 
             case BoosterType.Magnet:
-                pickupsHandler.SetPickupState(PickupState.Magnet);
+                pickupsHandler.UpdatePickupVisual(PickupState.Magnet);
                 break;
 
             case BoosterType.Shield:
-                pickupsHandler.SetPickupState(PickupState.Shield);
+                pickupsHandler.UpdatePickupVisual(PickupState.Shield);
                 break;
 
             case BoosterType.Nitro:
-                pickupsHandler.SetPickupState(PickupState.Nitro);
+                pickupsHandler.UpdatePickupVisual(PickupState.Nitro);
                 playerMovement.ResetSpeed();
-                StartCoroutine(playerMovement.ChangeMovementSpeed(nitroSpeedUpMultiplier, nitroDuration));
+                StartCoroutine(playerMovement.ChangeMovementSpeed
+                    (nitroSpeedUpMultiplier, nitroDuration));
                 break;
 
             case BoosterType.HealthPoint:

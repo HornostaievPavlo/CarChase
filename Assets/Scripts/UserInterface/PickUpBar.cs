@@ -17,9 +17,9 @@ public class PickUpBar : MonoBehaviour
     private Image fillImage;
     private TMP_Text barText;
 
-    private const string MAGNET = "Magnet";
-    private const string SHIELD = "Shield";
-    private const string NITRO = "Nitro";
+    private const string MAGNET_NAME = "Magnet";
+    private const string SHIELD_NAME = "Shield";
+    private const string NITRO_NAME = "Nitro";
 
     private void Awake()
     {
@@ -27,10 +27,7 @@ public class PickUpBar : MonoBehaviour
         barText = barParent.GetComponentInChildren<TMP_Text>();
     }
 
-    private void Update()
-    {
-        ShowCurrentPickUpBar();
-    }
+    private void Update() => ShowCurrentPickUpBar();
 
     private void ShowCurrentPickUpBar()
     {
@@ -44,17 +41,17 @@ public class PickUpBar : MonoBehaviour
         {
             case PickupState.Magnet:
                 fillImage.sprite = magnetFill;
-                barText.text = MAGNET;
+                barText.text = MAGNET_NAME;
                 break;
 
             case PickupState.Shield:
                 fillImage.sprite = shieldFill;
-                barText.text = SHIELD;
+                barText.text = SHIELD_NAME;
                 break;
 
             case PickupState.Nitro:
                 fillImage.sprite = nitroFill;
-                barText.text = NITRO;
+                barText.text = NITRO_NAME;
                 break;
         }
 

@@ -25,10 +25,16 @@ public class ScoreCounter : MonoBehaviour
         bestScoreText.text = bestScore.ToString();
 
         EventsHandler.CoinCollected.AddListener(IncreaseScore);
-        EventsHandler.LevelFailed.AddListener(UpdateBestScore);
+        EventsHandler.LevelFailed.AddListener(ShowStatistics);
     }
 
-    private void UpdateBestScore()
+    private void IncreaseScore()
+    {
+        currentScore += COIN_VALUE;
+        onScreenScoreText.text = currentScore.ToString();
+    }
+
+    private void ShowStatistics()
     {
         if (currentScore > bestScore)
         {
@@ -40,12 +46,5 @@ public class ScoreCounter : MonoBehaviour
         }
 
         menuScoreText.text = currentScore.ToString();
-    }
-
-    private void IncreaseScore()
-    {
-        currentScore += COIN_VALUE;
-
-        onScreenScoreText.text = currentScore.ToString();
     }
 }
