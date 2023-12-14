@@ -15,8 +15,6 @@ public class GameEntitiesFactory : MonoBehaviour
 
     [SerializeField] private float boostersSpawningRate;
 
-    private const float POLICE_SPAWN_RATE = 60f;
-
     private const float VERTICAL_POSITION = 6f;
     private const float HORIZONTAL_SPAWN_BORDER = 1.25f;
 
@@ -24,7 +22,8 @@ public class GameEntitiesFactory : MonoBehaviour
     {
         EventsHandler.LevelFailed.AddListener(DisableFactory);
 
-        InvokeRepeating(nameof(SpawnPoliceCar), POLICE_SPAWN_RATE, POLICE_SPAWN_RATE);
+        float timeBeforeNewPoliceCar = 60f;
+        InvokeRepeating(nameof(SpawnPoliceCar), 10f, timeBeforeNewPoliceCar);
 
         float timeBeforeFirstObstacle = 5f;
         InvokeRepeating(nameof(SpawnRandomObstacle), timeBeforeFirstObstacle, obstaclesSpawningRate);
