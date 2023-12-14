@@ -15,6 +15,9 @@ public class PlayerMovement : MonoBehaviour
     private float currentHorSpeed;
     private float currentVertSpeed;
 
+    public float verticalInput;
+    public float horizontalInput;
+
     private bool isSpeedModified = false;
 
     private const float HORIZONTAL_BORDER = 1.3f;
@@ -34,9 +37,6 @@ public class PlayerMovement : MonoBehaviour
 
     private void MovePlayer()
     {
-        float verticalInput = Input.GetAxis("Vertical");
-        float horizontalInput = Input.GetAxis("Horizontal");
-
         float newXPosition = rb.position.x + horizontalInput * currentHorSpeed * Time.fixedDeltaTime;
         float newYPosition = rb.position.y + verticalInput * currentVertSpeed * Time.fixedDeltaTime;
 
@@ -51,6 +51,10 @@ public class PlayerMovement : MonoBehaviour
         currentHorSpeed = 0f;
         currentVertSpeed = 0f;
     }
+
+    public void SetHorizontalInput(float value) => horizontalInput = value;
+
+    public void SetVerticalInput(float value) => verticalInput = value;
 
     public IEnumerator ChangeMovementSpeed(float speedMultiplier, float effectDuration)
     {

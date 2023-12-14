@@ -536,7 +536,7 @@ TextureImporter:
         width: 167
         height: 174
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -544,6 +544,111 @@ TextureImporter:
       bones: []
       spriteID: 40293fcdbbdb5e9408a091727f631a12
       internalID: 397604112
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GasPedal
+      rect:
+        serializedVersion: 2
+        x: 1720
+        y: 1928
+        width: 156
+        height: 362
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 84228989ac1c4b743bfb8c008428be54
+      internalID: 1373066109
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BrakePedal
+      rect:
+        serializedVersion: 2
+        x: 1225
+        y: 1928
+        width: 390
+        height: 245
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 511803ce6cd6e3c40bd3b6b3646d9375
+      internalID: -844228007
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wheel
+      rect:
+        serializedVersion: 2
+        x: 478
+        y: 1864
+        width: 429
+        height: 426
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 43992407ea727d84da2f95cfb1345286
+      internalID: 186709240
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RightButton
+      rect:
+        serializedVersion: 2
+        x: 907
+        y: 1864
+        width: 175
+        height: 426
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9cb28879ceb3f1c4ea70212d35d02b61
+      internalID: -938643332
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LeftButton
+      rect:
+        serializedVersion: 2
+        x: 303
+        y: 1864
+        width: 175
+        height: 426
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 20cd75b5ee497d947a968de36c933711
+      internalID: -1966815327
       vertices: []
       indices: 
       edges: []
@@ -561,25 +666,29 @@ TextureImporter:
     nameFileIdTable:
       BarBackground: -207335593
       Block: -784490044
+      BrakePedal: -844228007
       Bush: 986781946
       Coin: 1984898856
       Crack1: -649845174
       Crack2: 886054846
       Crack3: 492889049
       CrushEffect: 397604112
-      Game assets atlas_1: 46003664
+      GasPedal: 1373066109
       HealthBarFill: -1214433641
       HealthPoint: -830866137
+      LeftButton: 46003664
       Magnet: -1695163580
       MagnetFill: -1695868480
       Nitro: -1174297908
       NitroFill: 1921129922
       OilPuddle: -932154452
       PauseButton: -1443282414
+      RightButton: -938643332
       Shield: -498015718
       ShieldFill: -1768317954
       Spectator1: 224437480
       Spectator2: -467299985
+      Wheel: 186709240
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
