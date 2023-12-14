@@ -94,6 +94,7 @@ public class PlayerCollisionHandler : MonoBehaviour
             case ObstacleType.Crack:
                 StartCoroutine(playerMovement.ChangeMovementSpeed(crackSlowDownMultiplier, crackSlowingDuration));
                 playerHealth.DamagePlayer(crackDamageAmount);
+                EventsHandler.OnPlayerCrushed(transform.position);
                 break;
         }
     }

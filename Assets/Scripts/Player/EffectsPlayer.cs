@@ -16,17 +16,19 @@ public class EffectsPlayer : MonoBehaviour
 
     private void PlayCrushEffect(Vector3 crushPosition)
     {
-        Instantiate(crushPrefab, crushPosition, Quaternion.identity);
+        var newCrush = Instantiate(crushPrefab, crushPosition, Quaternion.identity);
 
-        StartCoroutine(ShowCrushPanel());
+        StartCoroutine(ShowCrushPanel(newCrush));
     }
 
-    private IEnumerator ShowCrushPanel()
+    private IEnumerator ShowCrushPanel(GameObject currentCrushPrefab)
     {
         crushPanel.SetActive(true);
 
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(0.25f);
+        currentCrushPrefab.SetActive(false);
 
+        yield return new WaitForSeconds(0.5f);
         crushPanel.SetActive(false);
     }
 }
