@@ -22,6 +22,7 @@ public class PlayerPickupsHandler : MonoBehaviour
     private void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
+        EventsHandler.LevelFailed.AddListener(() => SetPickupState(PickupState.None));
     }
 
     private void Update()
